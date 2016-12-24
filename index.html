@@ -16,7 +16,29 @@
             </div>
 
             <div class="timing" ng-controller="TimeCtrl">
-                <p>{{ message }}</p>
+                <!-- Break Length -->
+                <div class="break">
+                    <h3>Break Length</h3>
+                    <div class="select">
+                        <a class="btn" ng-click="decreaseBreak()">-</a>
+                        <p>{{breakLength}}</p>
+                        <a class="btn" ng-click="increaseBreak()">+</a>
+                    </div>
+                </div>
+
+                <!-- Session Length -->
+                <div class="session">
+                    <h3>Session Length</h3>
+                    <div class="select">
+                        <a class="btn" ng-click="decreaseSession()">-</a>
+                        <p>{{sessionLength}}</p>
+                        <a class="btn" ng-click="increaseSession()">+</a>
+                    </div>
+                </div>
+
+
+                <!-- Display -->
+                
             </div>
         </div>
     
