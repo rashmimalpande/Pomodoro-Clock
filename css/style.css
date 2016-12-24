@@ -27,8 +27,7 @@ body {
 }
 
 .timing {
-    width: 100%;
-     display: flex;
+    display: flex;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
@@ -38,11 +37,12 @@ body {
 .break,
 .session {
     width: 50%;
+    text-align: center;
 }
 
 
 .select {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     width: 85px;
     align-items: center;
@@ -56,5 +56,48 @@ body {
 
 .btn {
     font-size: 2em;
+    cursor: pointer;
+}
+
+.timer{
+    margin: 80px;
+}
+
+
+.circle {
+    width: 300px;
+    height: 300px;
+    border-radius:100%;
+    border: 2px solid #99CC00;
+    margin: 10px auto;
+    position:relative;
+    z-index:1;
+    overflow:hidden;
+    cursor: pointer;
+}
+
+.circle:after {
+    content:"";
+    position:absolute;
+    bottom:0;
+    right:0;
+    height:0;
+    width:100%;
+    background:#99CC00;
+    transition:all 10s ease;
+    z-index:-1;
+}
+
+.circle:hover:after{
+   height:100%;
+}
+
+
+.countdown{
+    text-align: center;
+    font-size: 2em;
+    vertical-align: bottom;
+    top: 50%;
+    position: relative;
     cursor: pointer;
 }

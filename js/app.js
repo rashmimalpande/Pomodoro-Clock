@@ -5,8 +5,10 @@ app.controller('TimeCtrl', ['$scope',
          $scope.message = "Hello World";
          $scope.breakLength = 5;
          $scope.sessionLength = 25;
+         $scope.minutes = $scope.sessionLength;
+         $scope.seconds = 0;
          $scope.decreaseBreak = function(){
-             if($scope.breakLength != 0){
+             if($scope.breakLength > 1){
                  $scope.breakLength--;
              }
              
@@ -17,7 +19,7 @@ app.controller('TimeCtrl', ['$scope',
          }
 
          $scope.decreaseSession = function() {
-             if($scope.breakLength != 0){
+             if($scope.breakLength > 1){
                 $scope.sessionLength--;
              }
              
@@ -25,6 +27,11 @@ app.controller('TimeCtrl', ['$scope',
 
          $scope.increaseSession = function() {
              $scope.sessionLength++;
+         }
+
+
+         $scope.toggleTimer = function() {
+
          }
     }
 

@@ -10,12 +10,12 @@
 
 
     <body ng-app="app">
-        <div class="main">
+        <div class="main"  ng-controller="TimeCtrl">
             <div class="title">
                 <h1>Pomodoro Clock</h1>
             </div>
 
-            <div class="timing" ng-controller="TimeCtrl">
+            <div class="timing">
                 <!-- Break Length -->
                 <div class="break">
                     <h3>Break Length</h3>
@@ -35,10 +35,18 @@
                         <a class="btn" ng-click="increaseSession()">+</a>
                     </div>
                 </div>
-
-
-                <!-- Display -->
                 
+                <!-- Display -->
+
+            </div>
+
+            
+            <div class="timer">
+                    <div class="circle" ng-click="toggleTimer()">
+                        <div class="countdown">
+                            {{sessionLength | date:'mm:ss'}}
+                        </div>
+                    </div>
             </div>
         </div>
     
