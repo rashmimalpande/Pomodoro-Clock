@@ -76,7 +76,7 @@ body {
     cursor: pointer;
 }
 
-.circle:after {
+#filler{
     content:"";
     position:absolute;
     bottom:0;
@@ -84,14 +84,8 @@ body {
     height:0;
     width:100%;
     background:#99CC00;
-    transition:all 10s ease;
     z-index:-1;
 }
-
-.circle:hover:after{
-   height:100%;
-}
-
 
 .countdown{
     text-align: center;

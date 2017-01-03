@@ -35,16 +35,16 @@
                         <a class="btn" ng-click="increaseSession()">+</a>
                     </div>
                 </div>
-                
-                <!-- Display -->
 
             </div>
 
             
             <div class="timer">
                     <div class="circle" ng-click="toggleTimer()">
+                        <div id="filler" ng-style="{'height': fillerHeight+'%', 'transition':'all ' + 1*60 + 's ease'}">
+                        </div>
                         <div class="countdown">
-                            {{sessionLength | date:'mm:ss'}}
+                                {{sessionLength}}
                         </div>
                     </div>
             </div>
