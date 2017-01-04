@@ -41,12 +41,15 @@
             
             <div class="timer">
                     <div class="circle" ng-click="toggleTimer()">
-                        <div id="filler" ng-style="{'height': fillerHeight+'%', 'transition':'all ' + 1*60 + 's ease'}">
+                        <div id="filler" ng-style="{'height': fillerHeight+'%', 'transition':'all ' + minutes + 's ease'}">
                         </div>
                         <div class="countdown">
-                                {{sessionLength}}
+                                {{minutes}}
                         </div>
                     </div>
+
+
+                    <p style="text-align: center; margin-top: 10px;">By Rashmi Malpande</p>
             </div>
         </div>
     
