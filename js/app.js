@@ -58,11 +58,26 @@ app.controller('TimeCtrl', ['$scope','$interval',
          };
 
          $scope.startTimer = function(){
+             var height = 100 / $scope.minutes;
              $scope.timeLeft = $interval(function(){
-                if($scope.fillerHeight!= 100){
-                    $scope.fillerHeight++;
+                if($scope.minutes !== 0){
+                    $scope.minutes--;
+                    $scope.fillerHeight += height;
                 }
 
+                if($scope.fillerHeight == 100 && $scope.color=="#99CC00"){
+                    $scope.fillerHeight = 0;
+                    $scope.color = 'tomato';
+                    $scope.minutes = $scope.breakLength;
+                    height = 100 / $scope.minutes;
+                }
+
+                else if($scope.fillerHeight == 100 && $scope.color=="tomato"){
+                    $scope.fillerHeight = 0;
+                    $scope.color = '#99CC00';
+                    $scope.minutes = $scope.sessionLength;
+                    height = 100 / $scope.minutes;
+                }
             },1000);
          };
 
