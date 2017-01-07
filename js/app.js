@@ -4,8 +4,8 @@ app.controller('TimeCtrl', ['$scope','$interval',
      function($scope, $interval){
          $scope.breakLength = 5;
          $scope.sessionLength = 25;
-         $scope.minutes = $scope.sessionLength * 60;
-         $scope.seconds = 60;
+         $scope.minutes = $scope.sessionLength;
+         $scope.seconds = 0;
          $scope.timeLeft = 0;
          $scope.fillerHeight = 0;
          $scope.color = "#99CC00";
@@ -26,14 +26,14 @@ app.controller('TimeCtrl', ['$scope','$interval',
          $scope.decreaseSession = function() {
              if($scope.breakLength > 1){
                 $scope.sessionLength--;
-                $scope.minutes = $scope.sessionLength * 60;
+                $scope.minutes = $scope.sessionLength;
              }
              
          };
 
          $scope.increaseSession = function() {
              $scope.sessionLength++;
-             $scope.minutes = $scope.sessionLength * 60;
+             $scope.minutes = $scope.sessionLength;
          };
 
 
@@ -61,26 +61,36 @@ app.controller('TimeCtrl', ['$scope','$interval',
          };
 
          $scope.startTimer = function(){
-             var height = 100 / $scope.minutes;
-
+             var height = 100 / ($scope.minutes * 60);
+           
+             
              $scope.timeLeft = $interval(function(){
-                if($scope.minutes !== 0){
-                    $scope.minutes--;
+                if($scope.seconds !== 0){
+                    $scope.seconds--;
                     $scope.fillerHeight += height;
                 }
+
+                if($scope.seconds == 0){
+                    $scope.minutes--;
+                    $scope.seconds = 60;
+                    
+                }
+
 
                 if($scope.fillerHeight >= 100 && $scope.color=="#99CC00"){
                     $scope.fillerHeight = 0;
                     $scope.color = 'tomato';
-                    $scope.minutes = $scope.breakLength * 60;
-                    height = 100 / $scope.minutes;
+                    $scope.minutes = $scope.breakLength;
+                    $scope.seconds = 0;
+                    height = 100 / ($scope.minutes * 60);
                 }
 
                 else if($scope.fillerHeight >= 100 && $scope.color=="tomato"){
                     $scope.fillerHeight = 0;
                     $scope.color = '#99CC00';
-                    $scope.minutes = $scope.sessionLength * 60;
-                    height = 100 / $scope.minutes;
+                    $scope.minutes = $scope.sessionLength;
+                    $scope.seconds = 0;
+                    height = 100 / ($scope.minutes * 60);
                 }
             },1000);
          };
