@@ -24,9 +24,10 @@ app.controller('TimeCtrl', ['$scope','$interval',
          };
 
          $scope.decreaseSession = function() {
-             if($scope.breakLength > 1){
+             if($scope.sessionLength > 1){
                 $scope.sessionLength--;
                 $scope.minutes = $scope.sessionLength;
+                $scope.seconds = 0;
              }
              
          };
@@ -34,6 +35,7 @@ app.controller('TimeCtrl', ['$scope','$interval',
          $scope.increaseSession = function() {
              $scope.sessionLength++;
              $scope.minutes = $scope.sessionLength;
+             $scope.seconds = 0;
          };
 
 
@@ -73,7 +75,6 @@ app.controller('TimeCtrl', ['$scope','$interval',
                 if($scope.seconds == 0){
                     $scope.minutes--;
                     $scope.seconds = 60;
-                    
                 }
 
 
@@ -81,7 +82,7 @@ app.controller('TimeCtrl', ['$scope','$interval',
                     $scope.fillerHeight = 0;
                     $scope.color = 'tomato';
                     $scope.minutes = $scope.breakLength;
-                    $scope.seconds = 0;
+                    $scope.seconds = 60;
                     height = 100 / ($scope.minutes * 60);
                 }
 
@@ -89,7 +90,7 @@ app.controller('TimeCtrl', ['$scope','$interval',
                     $scope.fillerHeight = 0;
                     $scope.color = '#99CC00';
                     $scope.minutes = $scope.sessionLength;
-                    $scope.seconds = 0;
+                    $scope.seconds = 60;
                     height = 100 / ($scope.minutes * 60);
                 }
             },1000);
