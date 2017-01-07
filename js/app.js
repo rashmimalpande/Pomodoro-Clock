@@ -82,7 +82,7 @@ app.controller('TimeCtrl', ['$scope','$interval',
                     $scope.fillerHeight = 0;
                     $scope.color = 'tomato';
                     $scope.minutes = $scope.breakLength;
-                    $scope.seconds = 60;
+                    $scope.seconds = 0;
                     height = 100 / ($scope.minutes * 60);
                 }
 
@@ -90,7 +90,7 @@ app.controller('TimeCtrl', ['$scope','$interval',
                     $scope.fillerHeight = 0;
                     $scope.color = '#99CC00';
                     $scope.minutes = $scope.sessionLength;
-                    $scope.seconds = 60;
+                    $scope.seconds = 0;
                     height = 100 / ($scope.minutes * 60);
                 }
             },1000);
